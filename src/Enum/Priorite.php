@@ -2,14 +2,20 @@
 
 namespace App\Enum;
 
-enum Priorite: string
-{
+/**
+ * Priorite - Enumeration representing task/item priority levels.
+ *
+ * Provides helper methods for display labels, Bootstrap badge classes,
+ * inline badge styles, and emoji icons for each priority level.
+ *
+ * Levels: HAUTE (high), MOYENNE (medium), BASSE (low).
+ */
+enum Priorite: string {
     case HAUTE = 'HAUTE';
     case MOYENNE = 'MOYENNE';
     case BASSE = 'BASSE';
 
-    public function getLabel(): string
-    {
+    public function getLabel(): string {
         return match($this) {
             self::HAUTE => 'Haute',
             self::MOYENNE => 'Moyenne',
@@ -17,8 +23,7 @@ enum Priorite: string
         };
     }
 
-    public function getBadgeClass(): string
-    {
+    public function getBadgeClass(): string {
         return match($this) {
             self::HAUTE => 'danger',
             self::MOYENNE => 'warning',
@@ -26,8 +31,7 @@ enum Priorite: string
         };
     }
 
-    public function badgeStyle(): string
-    {
+    public function badgeStyle(): string {
         return match($this) {
             self::HAUTE => 'background:#ffebee; color:#c62828; padding:4px 10px; border-radius:12px; font-size:0.75rem; font-weight:600;',
             self::MOYENNE => 'background:#fff8e1; color:#f57f17; padding:4px 10px; border-radius:12px; font-size:0.75rem; font-weight:600;',
@@ -35,8 +39,7 @@ enum Priorite: string
         };
     }
 
-    public function icon(): string
-    {
+    public function icon(): string {
         return match($this) {
             self::HAUTE => '🔴',
             self::MOYENNE => '🟡',
@@ -44,8 +47,7 @@ enum Priorite: string
         };
     }
 
-    public function label(): string
-    {
+    public function label(): string {
         return $this->getLabel();
     }
 }
